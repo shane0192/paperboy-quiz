@@ -6,12 +6,18 @@ import EmailCapture from "./components/EmailCapture";
 import Result from "./components/Result";
 import { questions, results, calculateResult } from "./data/quizData";
 
-const FORM_ID = import.meta.env.VITE_KIT_FORM_ID;
 const API_KEY = import.meta.env.VITE_KIT_API_KEY;
 
+const TAG_IDS = {
+  quiz_result_digital_product: 17167287,
+  quiz_result_paid_newsletter: 17167304,
+  quiz_result_coaching_consulting: 17167305,
+  quiz_result_sponsorships: 17167306,
+};
+
 async function subscribeToKit({ email, name, tag, answers }) {
-  if (!FORM_ID || !API_KEY) {
-    console.warn("Kit credentials not configured — skipping subscription");
+  if (!API_KEY) {
+    console.warn("Kit API key not configured — skipping subscription");
     return;
   }
 
@@ -19,30 +25,40 @@ async function subscribeToKit({ email, name, tag, answers }) {
   const fields = {};
   answers.forEach((answerIndex, qIndex) => {
     const q = questions[qIndex];
-    const fieldName = `quiz_q${qIndex + 1}`;
-    fields[fieldName] = q.options[answerIndex].text;
+    fields[`quiz_q${qIndex + 1}`] = q.options[answerIndex].text;
   });
   fields.quiz_result = tag.replace("quiz_result_", "").replace(/_/g, " ");
 
-  const res = await fetch(
-    `https://api.convertkit.com/v4/forms/${FORM_ID}/subscribers`,
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${API_KEY}`,
-      },
-      body: JSON.stringify({
-        email_address: email,
-        first_name: name || undefined,
-        tags: [tag],
-        fields,
-      }),
-    }
-  );
+  // Step 1: Create/update subscriber with custom fields
+  const res = await fetch("https://api.kit.com/v4/subscribers", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "X-Kit-Api-Key": API_KEY,
+    },
+    body: JSON.stringify({
+      email_address: email,
+      first_name: name || undefined,
+      fields,
+    }),
+  });
 
   if (!res.ok) {
     throw new Error("Subscription failed");
+  }
+
+  // Step 2: Tag the subscriber
+  const tagId = TAG_IDS[tag];
+  if (tagId) {
+    const { subscriber } = await res.json();
+    await fetch(`https://api.kit.com/v4/tags/${tagId}/subscribers`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-Kit-Api-Key": API_KEY,
+      },
+      body: JSON.stringify({ email_address: email }),
+    });
   }
 }
 
