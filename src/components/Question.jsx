@@ -15,7 +15,7 @@ export default function Question({ questionIndex, onAnswer, onBack }) {
         transition={{ duration: 0.3 }}
       >
         <button className="btn-back" onClick={onBack}>
-          ← Back
+          Back
         </button>
 
         <div className="progress-bar-container">

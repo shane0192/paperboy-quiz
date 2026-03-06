@@ -124,6 +124,12 @@ body {
   transition: color 0.2s;
 }
 
+.btn-back::before {
+  content: "\2190";
+  margin-right: 6px;
+  font-family: "Arial", sans-serif;
+}
+
 .btn-back:hover {
   color: var(--text);
 }
