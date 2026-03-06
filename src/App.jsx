@@ -9,11 +9,20 @@ import { questions, results, calculateResult } from "./data/quizData";
 const FORM_ID = import.meta.env.VITE_KIT_FORM_ID;
 const API_KEY = import.meta.env.VITE_KIT_API_KEY;
 
-async function subscribeToKit({ email, name, tag }) {
+async function subscribeToKit({ email, name, tag, answers }) {
   if (!FORM_ID || !API_KEY) {
     console.warn("Kit credentials not configured — skipping subscription");
     return;
   }
+
+  // Build custom fields from quiz answers
+  const fields = {};
+  answers.forEach((answerIndex, qIndex) => {
+    const q = questions[qIndex];
+    const fieldName = `quiz_q${qIndex + 1}`;
+    fields[fieldName] = q.options[answerIndex].text;
+  });
+  fields.quiz_result = tag.replace("quiz_result_", "").replace(/_/g, " ");
 
   const res = await fetch(
     `https://api.convertkit.com/v4/forms/${FORM_ID}/subscribers`,
@@ -27,6 +36,7 @@ async function subscribeToKit({ email, name, tag }) {
         email_address: email,
         first_name: name || undefined,
         tags: [tag],
+        fields,
       }),
     }
   );
@@ -70,10 +80,11 @@ export default function App() {
         email,
         name,
         tag: resultData.tag,
+        answers,
       });
       setStep("result");
     },
-    [resultData]
+    [resultData, answers]
   );
 
   const handleRestart = useCallback(() => {
