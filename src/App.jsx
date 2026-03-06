@@ -92,6 +92,14 @@ export default function App() {
             key={`q-${questionIndex}`}
             questionIndex={questionIndex}
             onAnswer={handleAnswer}
+            onBack={() => {
+              if (questionIndex === 0) {
+                setStep("landing");
+              } else {
+                setAnswers(answers.slice(0, -1));
+                setQuestionIndex(questionIndex - 1);
+              }
+            }}
           />
         )}
         {step === "email" && (

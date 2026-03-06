@@ -30,7 +30,6 @@ export default function EmailCapture({ onSubmit }) {
       exit={{ opacity: 0, y: -20 }}
       transition={{ duration: 0.4 }}
     >
-      <div className="email-icon">📊</div>
       <h2>Your results are ready!</h2>
       <p className="email-sub">
         Enter your email to see your personalized monetization plan.
@@ -63,7 +62,7 @@ export default function EmailCapture({ onSubmit }) {
       </form>
 
       <p className="email-privacy">
-        🔒 No spam. Unsubscribe anytime.
+        No spam. Unsubscribe anytime.
       </p>
     </motion.div>
   );

@@ -1,7 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { questions } from "../data/quizData";
 
-export default function Question({ questionIndex, onAnswer }) {
+export default function Question({ questionIndex, onAnswer, onBack }) {
   const q = questions[questionIndex];
 
   return (
@@ -14,6 +14,10 @@ export default function Question({ questionIndex, onAnswer }) {
         exit={{ opacity: 0, x: -60 }}
         transition={{ duration: 0.3 }}
       >
+        <button className="btn-back" onClick={onBack}>
+          ← Back
+        </button>
+
         <div className="progress-bar-container">
           <div className="progress-label">
             Question {questionIndex + 1} of {questions.length}

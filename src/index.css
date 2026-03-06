@@ -110,6 +110,24 @@ body {
   cursor: not-allowed;
 }
 
+/* ── Back Button ── */
+.btn-back {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 4px 0;
+  margin-bottom: 16px;
+  font-family: inherit;
+  transition: color 0.2s;
+}
+
+.btn-back:hover {
+  color: var(--text);
+}
+
 /* ── Progress Bar ── */
 .progress-bar-container {
   margin-bottom: 32px;

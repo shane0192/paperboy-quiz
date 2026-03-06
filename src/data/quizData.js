@@ -56,7 +56,7 @@ export const results = {
     path: "digital_product",
     tag: "quiz_result_digital_product",
     headline: "Your #1 Move: Build a Digital Product",
-    emoji: "🚀",
+    emoji: "",
     body: `Based on your audience size and goals, the fastest path to revenue is a focused digital product — something like a template library, a mini-course, or a toolkit that solves one specific problem your audience has.
 
 You don't need a huge list. You need a clear offer and a simple funnel to get it in front of people.`,
@@ -68,14 +68,14 @@ You don't need a huge list. You need a clear offer and a simple funnel to get it
     cta: {
       text: "Want help building the growth engine behind this?",
       label: "Learn How Paperboy Can Help →",
-      url: "#",
+      url: "https://www.paperboystudios.co/",
     },
   },
   B: {
     path: "paid_newsletter",
     tag: "quiz_result_paid_newsletter",
     headline: "Your #1 Move: Launch a Paid Newsletter or Membership",
-    emoji: "📬",
+    emoji: "",
     body: `You've already got an engaged audience and you're producing content consistently. That puts you in an ideal position to monetize through a paid tier or membership.
 
 The key is giving your paying subscribers something they can't get from the free version — whether that's deeper analysis, exclusive access, or a community.`,
@@ -87,14 +87,14 @@ The key is giving your paying subscribers something they can't get from the free
     cta: {
       text: "Want to see how much your newsletter could be worth?",
       label: "Try the Revenue Calculator →",
-      url: "#",
+      url: "https://calculator.paperboystudios.co/",
     },
   },
   C: {
     path: "coaching_consulting",
     tag: "quiz_result_coaching_consulting",
     headline: "Your #1 Move: Offer a High-Ticket Service",
-    emoji: "💼",
+    emoji: "",
     body: `You don't need a massive audience to make real money. With your current setup, the fastest path is a coaching offer, consulting package, or done-for-you service priced at $500+ per client.
 
 Even 5–10 clients a month at that level changes everything. The audience you're building becomes your lead generation engine.`,
@@ -106,14 +106,14 @@ Even 5–10 clients a month at that level changes everything. The audience you'r
     cta: {
       text: "Want help turning your audience into a client pipeline?",
       label: "Learn How Paperboy Can Help →",
-      url: "#",
+      url: "https://www.paperboystudios.co/",
     },
   },
   D: {
     path: "sponsorships",
     tag: "quiz_result_sponsorships",
     headline: "Your #1 Move: Land Brand Partnerships",
-    emoji: "🤝",
+    emoji: "",
     body: `With your audience size and content volume, you're in a strong position to attract sponsors. But here's the thing most creators miss — sponsorship revenue has a ceiling, and it disappears when the sponsor leaves.
 
 The smartest play is to use sponsorships as supplemental income while building owned revenue streams underneath.`,
@@ -125,7 +125,7 @@ The smartest play is to use sponsorships as supplemental income while building o
     cta: {
       text: "Want to see what your audience is actually worth beyond sponsorships?",
       label: "Try the Revenue Calculator →",
-      url: "#",
+      url: "https://calculator.paperboystudios.co/",
     },
   },
 };

@@ -28,7 +28,6 @@ export default function Result({ result, onRestart }) {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <div className="result-emoji">{result.emoji}</div>
       <h1 className="result-headline">{result.headline}</h1>
 
       <div className="result-body">
