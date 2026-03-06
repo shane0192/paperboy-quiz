@@ -33,9 +33,18 @@ body {
 .app-container {
   min-height: 100dvh;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 24px 20px;
+}
+
+.app-logo {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  margin-bottom: 24px;
+  flex-shrink: 0;
 }
 
 @supports not (min-height: 100dvh) {

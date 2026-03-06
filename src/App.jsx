@@ -85,6 +85,7 @@ export default function App() {
 
   return (
     <div className="app-container">
+      <img src="/logo.jpg" alt="Paperboy" className="app-logo" />
       <AnimatePresence mode="wait">
         {step === "landing" && <Landing key="landing" onStart={handleStart} />}
         {step === "quiz" && (
