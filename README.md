@@ -1,16 +1,41 @@
-# React + Vite
+# Paperboy Quiz — "What Should I Sell?"
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Top-of-funnel lead magnet quiz that helps creators and entrepreneurs discover the #1 way to monetize their audience. Captures emails via Kit (ConvertKit) and tags subscribers with their quiz result for segmented follow-up.
 
-Currently, two official plugins are available:
+## How It Works
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. Landing page with CTA to start the quiz
+2. 5 multiple-choice questions (auto-advances on selection)
+3. Email capture gate before showing results
+4. Personalized result page with one of 4 monetization paths:
+   - **Digital Product** (course, template, toolkit)
+   - **Paid Newsletter / Membership**
+   - **Coaching / Consulting / Services**
+   - **Sponsorships / Brand Deals**
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React + Vite
+- Framer Motion (animations)
+- Kit (ConvertKit) V4 API for email capture
+- Hosted on Vercel
 
-## Expanding the ESLint configuration
+## Setup
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```bash
+npm install
+npm run dev
+```
+
+### Environment Variables
+
+Create a `.env.local` file (or set in Vercel dashboard):
+
+```
+VITE_KIT_FORM_ID=your_form_id
+VITE_KIT_API_KEY=your_api_key
+```
+
+## CTA Keyword
+
+"Comment QUIZ" — triggered via ManyChat, links to this quiz.
