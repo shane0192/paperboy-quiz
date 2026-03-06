@@ -31,11 +31,17 @@ body {
 }
 
 .app-container {
-  min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 24px 20px;
+}
+
+@supports not (min-height: 100dvh) {
+  .app-container {
+    min-height: -webkit-fill-available;
+  }
 }
 
 /* ── Landing ── */
